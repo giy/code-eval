@@ -1,0 +1,14 @@
+import sys
+test_cases = open(sys.argv[1], 'r')
+for test in test_cases:
+    test = test.strip().split()
+    number_of_doors = test[0]
+    number_of_iterations = test[1]
+    
+    doors = [False] * 100
+    for i in xrange(100):
+	for j in xrange(i, 100, i+1):
+            doors[j] = not doors[j]
+        print "Door %d:" % (i+1), 'open' if doors[i] else 'close'
+
+test_cases.close()
